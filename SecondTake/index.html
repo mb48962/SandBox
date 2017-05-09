@@ -49,6 +49,8 @@
   .parallax__layer--back {
     -webkit-transform: translateZ(-300px);
     transform: translateZ(-300px);
+    /*-webkit-transform: translateZ(-300px) scale(2);
+    transform: translateZ(-300px) scale(2);*/
     z-index: 3;
   }
 
@@ -120,6 +122,8 @@ img {
   position: absolute;
   left: 50%;
   top: 50%;
+  /*set to 10% because the apple is large*/
+  height: 10%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
@@ -132,7 +136,7 @@ img {
     z-index: 5; /* slide over group 2 */
   }
   #group1 .parallax__layer--base {
-    background: rgb(102,204,102);
+    /*background: rgb(102,204,102);*/
   }
 
   #group2 {
@@ -202,6 +206,11 @@ img {
   </div>
 
   <div class="parallax">
+    <div id="group1" class="parallax__group">
+      <div class="parallax__layer parallax__layer--base">
+        <div class="title">Extra Scrolling Space</div>
+      </div>
+    </div>
     <div id="group4" class="parallax__group">
       <div class="parallax__layer parallax__layer--base">
         <div class="title">Base Layer</div>
