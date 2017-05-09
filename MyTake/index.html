@@ -97,31 +97,7 @@ p {
 .sunset:not(.header) {
   align-items: flex-end;
 }
-.solid {
-  z-index: 1;
-  position: relative;
-  height: 70vh;
-  font-size: 1.5em;
-  line-height: 1.5em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
 
-.solid.star {
-  background-image: linear-gradient(hsla(240, 90%, 8%, 1) 0%, 99%, hsla(217,24%,71%,0) 100%);
-  box-shadow: -10px -10px 20px hsl(240, 90%, 8%);
-}
-.solid.woods {
-  background-color: hsl(195, 16%, 49%);
-  box-shadow: -10px -10px 20px hsl(195, 16%, 49%);
-}
-a, a:link, a:active, a:hover, a:visited {
-  color: hsl(240, 100%, 90%);
-  display: flex;
-  align-items: flex-end;
-}
 
 </style>
 <script src="scripts/parallax.js"></script>
@@ -134,40 +110,9 @@ a, a:link, a:active, a:hover, a:visited {
 <body>
     <div class="viewport">
     <div>
-      <!-- Specifying a parallax rate of 0.3 will slide the image at that proportion of the scroll speed. -->
-      <div class="parallax header" style="background-image: url('images/stars.jpg');" parallax="0.1"></div>
-      <div class="scene header">
-        <h1>Gazing into the stars&nbsp;&nbsp;🐱</h1>
-        <h2>When cats use <code>requestIdleCallback</code></h2>
-      </div>
-      <div class="scene solid star">
-        <p>
-          What’s this? This is a parallax scroller. But not just yet another parallax scroller, it’s one that doesn’t rely on JavaScript for the animation, that works on both desktop and mobile and has 60fps while scrolling. This was a lot harder than we originally anticipated, so we wrote up what we did for you to read!
-        </p>
-        <p>
-          <a href="https://developers.google.com/web/updates/2016/12/performant-parallaxing">
-          <img src="images/screengrab.jpg" style="width: 10vw; float: left; margin-right: 2vw;">
-          Read the article on developers.google.com!</a>
-        </p>
-      </div>
-      <!-- When a rate isn't specified, it will be calculated such that the image always fills the space between the
-           element before it and the next element with the "parallax-cover" attribute. -->
-      <div class="parallax" style="background-image: url('images/sea.jpg');" parallax></div>
-      <div class="scene woods">
-        <h1>Gazing into the sea&nbsp;&nbsp;🐳</h1>
-        <h2>Some people don’t have <code>class</code></h2>
-      </div>
-      <div class="scene solid woods" parallax-cover>
-        <p>
-          Lorem ipsum dolor sit amet, et natum mucius quo, nam zril offendit ei. Cu mea amet paulo consequat. Eam nonumy integre malorum ei. Fabulas feugait detracto cu usu. Ad brute moderatius sit, ne mel ullum saperet.
-        </p>
-        <p>
-          Inermis petentium cotidieque sed cu. No duo alienum salutandi. Exerci evertitur vix ea, mei audire conclusionemque an. His nisl graece euismod ad.
-        </p>
-      </div>
       <!-- When a rate isn't specified and there is no subsequent element with the "parallax-cover" attribute the rate
            will be calculated such that the image slides until the end of the scrollable content. -->
-      <div class="parallax" style="background-image: url('images/sunset.jpg');" parallax></div>
+      <div class="parallax" style="background-image: url('images/galaxy.jpg');" parallax></div>
       <div class="scene sunset">
         <h1>Gazing into the sunset&nbsp;&nbsp;🌞</h1>
         <h2><code>!important</code> is not a performance primitive</h2>
