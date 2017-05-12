@@ -126,6 +126,18 @@ img {
   transform: translate(-50%, -50%);
 }
 
+#img1 {
+  left: 80%;
+}
+
+#img2 {
+  left: 60%;
+}
+
+#img1 {
+  left: 30%;
+}
+
 
   /* style the groups
   --------------------------------------------- */
@@ -199,9 +211,6 @@ img {
   <div class="debug">
     <label><input type="checkbox"> Debug</label>
   </div>
-  <div class="demo__info">
-    Pure CSS parallax scroll demo #3 by Keith Clark. Please read the <a href="../">blog post</a> for more information.
-  </div>
 
   <div class="parallax">
     <div id="group1" class="parallax__group">
@@ -212,15 +221,15 @@ img {
     <div id="group4" class="parallax__group">
       <div class="parallax__layer parallax__layer--base">
         <div class="title">Base Layer</div>
-        <img src="images/face1.png"/>
+        <img id="img1" src="images/face1.png"/>
       </div>
       <div class="parallax__layer parallax__layer--back">
         <div class="title">Background Layer</div>
-        <img src="images/face1.png"/>
+        <img id="img2"src="images/face1.png"/>
       </div>
       <div class="parallax__layer parallax__layer--deep">
         <div class="title">Deep Background Layer</div>
-        <img src="images/face1.png"/>
+        <img id="img3" src="images/face1.png"/>
       </div>
     </div>
   </div>
