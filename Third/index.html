@@ -34,36 +34,44 @@
     bottom: 0;
   }
 
-  .parallax__layer--fore {
-    -webkit-transform: translateZ(90px) scale(.7);
-    transform: translateZ(90px) scale(.7);
-    z-index: 1;
+  .parallax__layer--blue {
+    -webkit-transform: translateZ(0) scale(5);
+    transform: translateZ(0) scale(5);
+    z-index: -4;
   }
 
-  .parallax__layer--base {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    z-index: 4;
+  .parallax__layer--clouds {
+    -webkit-transform: translateZ(25px);
+    transform: translateZ(25px);
+    z-index: -3;
   }
 
-  .parallax__layer--back {
-    -webkit-transform: translateZ(-300px);
-    transform: translateZ(-300px);
-    /*-webkit-transform: translateZ(-300px) scale(2);
-    transform: translateZ(-300px) scale(2);*/
-    z-index: 3;
+  .parallax__layer--sun {
+    -webkit-transform: translateZ(50px);
+    transform: translateZ(50px);
+    z-index: -2;
   }
 
-  .parallax__layer--deep {
-    -webkit-transform: translateZ(-600px) scale(3);
-    transform: translateZ(-600px) scale(3);
-    z-index: 2;
+  .parallax__layer--iris {
+    -webkit-transform: translateZ(100px);
+    transform: translateZ(100px);
+    z-index: -1;
   }
 
+  .parallax__layer--highlight {
+    -webkit-transform: translateZ(125px);
+    transform: translateZ(125px);
+    z-index: 0;
+  }
+
+  .parallax__layer--inside_cloud {
+    -webkit-transform: translateZ(130px);
+    transform: translateZ(130px);
+    z-index: 0;
+  }
 
   /* Debugger styles - used to show the effect
   --------------------------------------------- */
-
   .debug {
     position: fixed;
     top: 0;
@@ -86,7 +94,6 @@
     -webkit-transition: -webkit-transform 0.5s;
     transition: transform 0.5s;
   }
-
 
   /* demo styles
   --------------------------------------------- */
@@ -126,66 +133,42 @@ img {
   transform: translate(-50%, -50%);
 }
 
-#img2 {
-  left: 90%;
+#blue {
+  top: 0%;
 }
-#img3 {
-  left: 10%;
+#clouds {
+  top: 10%;
 }
-
+#sun {
+  top: 15%;
+}
+#iris {
+  top: 20%;
+}
+#highlight {
+  top: 25%;
+}
+#inside_cloud {
+  top: 30%;
+}
 
   /* style the groups
   --------------------------------------------- */
-
-  #group1 {
-    z-index: 5; /* slide over group 2 */
+  #above_cloud {
+    z-index: 1;
   }
-  #group1 .parallax__layer--base {
-    /*background: rgb(102,204,102);*/
+  #in_cloud {
+    z-index: 2;
   }
-
-  #group2 {
-    z-index: 3; /* slide under groups 1 and 3 */
+  #free_fall {
+    z-index: 1;
   }
-  #group2 .parallax__layer--back {
-    background: rgb(123,210,102);
+  #tree_line {
+    z-index: 2;
   }
-
-  #group3 {
-    z-index: 4; /* slide over group 2 and 4 */
+  #forest {
+    z-index: 1;
   }
-  #group3 .parallax__layer--base {
-    background: rgb(153,216,101);
-  }
-
-  #group4 {
-    z-index: 2; /* slide under group 3 and 5 */
-  }
-  #group4 .parallax__layer--deep {
-    /*background: rgb(184,223,101);*/
-  }
-
-  #group5 {
-    z-index: 3; /* slide over group 4 and 6 */
-  }
-  #group5 .parallax__layer--base {
-    background: rgb(214,229,100);
-  }
-
-  #group6 {
-    z-index: 2; /* slide under group 5 and 7 */
-  }
-  #group6 .parallax__layer--back {
-    background: rgb(245,235,100);
-  }
-
-  #group7 {
-    z-index: 3; /* slide over group 7 */
-  }
-  #group7 .parallax__layer--base {
-    background: rgb(255,241,100);
-  }
-
 
   /* misc
   --------------------------------------------- */
@@ -206,28 +189,44 @@ img {
   <div class="debug">
     <label><input type="checkbox"> Debug</label>
   </div>
-
   <div class="parallax">
-    <div id="group1" class="parallax__group">
-      <div class="parallax__layer parallax__layer--base">
-        <img id="img2" src="images/face2.png"/>
+    <!-- above_cloud section-->
+    <div id="above_cloud" class="parallax__group">
+      <!-- blue layer-->
+      <div class="parallax__layer parallax__layer--blue">
+        <img id="blue" src="images/face2.png"/>
+        <div class="title"></div>
+      </div>
+      <!-- clouds layer-->
+      <div class="parallax__layer parallax__layer--clouds">
+        <img id="clouds" src="images/face2.png"/>
+        <div class="title"></div>
+      </div>
+      <!-- sun layer-->
+      <div class="parallax__layer parallax__layer--sun">
+        <img id="sun" src="images/face2.png"/>
+        <div class="title"></div>
+      </div>
+      <!-- iris layer-->
+      <div class="parallax__layer parallax__layer--iris">
+        <img id="iris" src="images/face2.png"/>
+        <div class="title"></div>
+      </div>
+      <!-- highlight layer-->
+      <div class="parallax__layer parallax__layer--highlight">
+        <img id="highlight" src="images/face2.png"/>
         <div class="title"></div>
       </div>
     </div>
-    <div id="group4" class="parallax__group">
-      <div class="parallax__layer parallax__layer--base">
+    <!-- in_cloud section-->
+    <div id="in_cloud" class="parallax__group">
+      <!-- inside_cloud layer-->
+      <div class="parallax__layer parallax__layer--inside_cloud">
+        <img id="inside_cloud" src="images/face2.png"/>
         <div class="title"></div>
-        <img id="img1" src="images/face1.png"/>
-      </div>
-      <div class="parallax__layer parallax__layer--back">
-        <div class="title"></div>
-        <img id="img2"src="images/face1.png"/>
-      </div>
-      <div class="parallax__layer parallax__layer--deep">
-        <div class="title"></div>
-        <img id="img3" src="images/face1.png"/>
       </div>
     </div>
+
   </div>
 
   <script>
