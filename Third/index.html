@@ -4,8 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <title>Matthew</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://unpkg.com/tilt.js@1.1.19/dest/tilt.jquery.min.js"></script>
+<script src="https://unpkg.com/tilt.js@1.1.19/dest/tilt.jquery.min.js"/>
 <style>
   /* Parallax base styles
   --------------------------------------------- */
@@ -160,10 +159,9 @@ img {
     <!-- above_cloud section-->
     <div id="above_cloud" class="parallax__group">
       <!-- sky layer-->
-        <div class="js-tilt" data-tilt-glare="true" data-tilt-maxglare=".5" data-tilt-perspective="300" data-tilt-speed="400" data-tilt-max="25">
-          <div class="parallax__layer parallax__layer--sky js-tilt-glare">
-            <img id="sky" src="images/sky.png"/>
-          </div>
+      <div class="parallax__layer parallax__layer--sky">
+        <img id="sky" src="images/sky.png"/>
+        <div class="title"></div>
       </div>
     </div>
     <!-- in_cloud section-->
@@ -171,6 +169,7 @@ img {
       <!-- inside_cloud layer-->
       <div class="parallax__layer parallax__layer--inside_cloud">
         <img id="inside_cloud" src="images/face2.png"/>
+        <div class="title"></div>
       </div>
     </div>
 
