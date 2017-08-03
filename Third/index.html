@@ -15,9 +15,8 @@
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-perspective: 300px;
-    perspective: 300px;
+    perspective: 1000px;
   }
-
   .parallax__group {
     position: relative;
     height: 500px; /* fallback for older browsers */
@@ -25,45 +24,31 @@
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
-
   .parallax__layer {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    bottom: -500%;
+    bottom: 0%;
   }
 
-  .parallax__layer--blue {
+  /*formula scale = ( 1 + [(translateZ * -1 )/perspective] )
+    perspective currently set to 1000px*/
+  .parallax__layer--sky {
     -webkit-transform: translateZ(0) scale(2);
     transform: translateZ(0) scale(2);
-    z-index: -4;
-  }
-
-  .parallax__layer--clouds {
-    -webkit-transform: translateZ(25px);
-    transform: translateZ(25px);
-    z-index: -3;
-  }
-
-  .parallax__layer--sun {
-    -webkit-transform: translateZ(50px);
-    transform: translateZ(50px);
     z-index: -2;
   }
-
   .parallax__layer--iris {
     -webkit-transform: translateZ(100px);
     transform: translateZ(100px);
     z-index: -1;
   }
-
   .parallax__layer--highlight {
     -webkit-transform: translateZ(125px);
     transform: translateZ(125px);
     z-index: 0;
   }
-
   .parallax__layer--inside_cloud {
     -webkit-transform: translateZ(130px);
     transform: translateZ(130px);
@@ -189,9 +174,9 @@ img {
   <div class="parallax">
     <!-- above_cloud section-->
     <div id="above_cloud" class="parallax__group">
-      <!-- blue layer-->
-      <div class="parallax__layer parallax__layer--blue">
-        <img id="blue" src="images/blue.png"/>
+      <!-- sky layer-->
+      <div class="parallax__layer parallax__layer--sky">
+        <img id="sky" src="images/sky.png"/>
         <div class="title"></div>
       </div>
       <!-- clouds layer-->
