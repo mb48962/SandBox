@@ -36,18 +36,13 @@
     perspective currently set to 1000px*/
   .parallax__layer--sky {
     -webkit-transform: translateZ(0) scale(2);
-    transform: translateZ(0) scale(2);
+    transform: translateZ(0) scale(1);
     z-index: -2;
   }
   .parallax__layer--iris {
     -webkit-transform: translateZ(100px);
     transform: translateZ(100px);
     z-index: -1;
-  }
-  .parallax__layer--highlight {
-    -webkit-transform: translateZ(125px);
-    transform: translateZ(125px);
-    z-index: 0;
   }
   .parallax__layer--inside_cloud {
     -webkit-transform: translateZ(130px);
@@ -118,20 +113,8 @@ img {
   transform: translate(-50%, -50%);
 }
 
-#clouds {
-  top: 10%;
-}
-#sun {
-  top: 15%;
-}
 #iris {
   top: 20%;
-}
-#highlight {
-  top: 25%;
-}
-#inside_cloud {
-  top: 30%;
 }
 
   /* style the groups
@@ -177,26 +160,6 @@ img {
       <!-- sky layer-->
       <div class="parallax__layer parallax__layer--sky">
         <img id="sky" src="images/sky.png"/>
-        <div class="title"></div>
-      </div>
-      <!-- clouds layer-->
-      <div class="parallax__layer parallax__layer--clouds">
-        <img id="clouds" src="images/clouds.png"/>
-        <div class="title"></div>
-      </div>
-      <!-- sun layer-->
-      <div class="parallax__layer parallax__layer--sun">
-        <img id="sun" src="images/sun.png"/>
-        <div class="title"></div>
-      </div>
-      <!-- iris layer-->
-      <div class="parallax__layer parallax__layer--iris">
-        <img id="iris" src="images/iris.png"/>
-        <div class="title"></div>
-      </div>
-      <!-- highlight layer-->
-      <div class="parallax__layer parallax__layer--highlight">
-        <img id="highlight" src="images/highlight.png"/>
         <div class="title"></div>
       </div>
     </div>
