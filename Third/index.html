@@ -42,6 +42,12 @@
     -webkit-transform: translateZ(100px);
     transform: translateZ(100px) scale(1);
     z-index: -1;
+    bottom: 100%;
+  }
+  .parallax__layer--third {
+    -webkit-transform: translateZ(200px);
+    transform: translateZ(200px) scale(2);
+    z-index: -2;
   }
 
   /* Debugger styles - used to show the effect
@@ -115,6 +121,9 @@ img {
   #two {
     z-index: 2;
   }
+  #three {
+    z-index: 3;
+  }
 
   /* misc
   --------------------------------------------- */
@@ -136,18 +145,23 @@ img {
     <label><input type="checkbox"> Debug</label>
   </div>
   <div class="parallax">
-    <!-- above_cloud section-->
+    <!-- first section-->
     <div id="one" class="parallax__group">
-      <!-- sky layer-->
+      <!-- first layer-->
       <div class="parallax__layer parallax__layer--first">
         <img id="1" src="images/1.png"/>
       </div>
     </div>
-    <!-- in_cloud section-->
+    <!-- second section-->
     <div id="two" class="parallax__group">
-      <!-- inside_cloud layer-->
       <div class="parallax__layer parallax__layer--second">
         <img id="2" src="images/2.png"/>
+      </div>
+    </div>
+    <!-- third section-->
+    <div id="third" class="parallax__group">
+      <div class="parallax__layer parallax__layer--third">
+        <img id="3" src="images/2.png"/>
       </div>
     </div>
 
