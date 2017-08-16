@@ -31,23 +31,17 @@
     bottom: 0%;
   }
 
-  /*formula scale = ( 1 + [(translateZ * -1 )/perspective] )
+  /*formula: scale = ( 1 + [(translateZ * -1 )/perspective] )
     perspective currently set to 1000px*/
-  .parallax__layer--sky {
+  .parallax__layer--first {
     -webkit-transform: translateZ(0) scale(2);
     transform: translateZ(0) scale(1);
-    z-index: -2;
-    top: 450px;
-  }
-  .parallax__layer--iris {
-    -webkit-transform: translateZ(100px);
-    transform: translateZ(100px);
     z-index: -1;
   }
-  .parallax__layer--inside_cloud {
-    -webkit-transform: translateZ(130px);
-    transform: translateZ(130px);
-    z-index: 0;
+  .parallax__layer--second {
+    -webkit-transform: translateZ(100px);
+    transform: translateZ(100px) scale(1);
+    z-index: -1;
   }
 
   /* Debugger styles - used to show the effect
@@ -113,26 +107,13 @@ img {
   transform: translate(-50%, -50%);
 }
 
-#iris {
-  top: 20%;
-}
-
   /* style the groups
   --------------------------------------------- */
-  #above_cloud {
+  #one {
     z-index: 1;
   }
-  #in_cloud {
+  #two {
     z-index: 2;
-  }
-  #free_fall {
-    z-index: 1;
-  }
-  #tree_line {
-    z-index: 2;
-  }
-  #forest {
-    z-index: 1;
   }
 
   /* misc
@@ -156,19 +137,17 @@ img {
   </div>
   <div class="parallax">
     <!-- above_cloud section-->
-    <div id="above_cloud" class="parallax__group">
+    <div id="one" class="parallax__group">
       <!-- sky layer-->
-      <div class="parallax__layer parallax__layer--sky">
-        <img id="sky" src="images/sky.png"/>
-        <div class="title"></div>
+      <div class="parallax__layer parallax__layer--first">
+        <img id="1" src="images/1.png"/>
       </div>
     </div>
     <!-- in_cloud section-->
-    <div id="in_cloud" class="parallax__group">
+    <div id="two" class="parallax__group">
       <!-- inside_cloud layer-->
-      <div class="parallax__layer parallax__layer--inside_cloud">
-        <img id="inside_cloud" src="images/face2.png"/>
-        <div class="title"></div>
+      <div class="parallax__layer parallax__layer--second">
+        <img id="2" src="images/2.png"/>
       </div>
     </div>
 
