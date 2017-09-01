@@ -204,7 +204,7 @@ img {
         particle[2] += 0.05;
 
       //fade out at distance
-      var alpha = 1 - (dis/(hyp*0.5));
+      var alpha = 1 + (dis/(hyp*0.5));
 
       //determine particle size
       var size = i%2 == 0 ? 1 : 2;
