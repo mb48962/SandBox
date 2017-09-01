@@ -161,7 +161,7 @@ img {
   canvas.width = w; canvas.height = h;
   var ctx = canvas.getContext("2d");
 
-  var color = [58, 213, 228];
+  var color = [191, 0, 255];
 
   //get particle origin
   var origin = [w/2, h/2];
@@ -185,6 +185,7 @@ img {
       particles.push(getParticle(), getParticle());
   };
 
+  //render each particle: twirl fade change size
   var render = function() {
     [].forEach.call(particles, function(particle, i) {
       //get new position for particle ( x = x + degree * cos(y) )
