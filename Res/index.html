@@ -156,8 +156,8 @@ img {
 
   (function part() {
   //setup document
-  var w = document.width > 200 ? document.width : 1920;
-  var h = document.height > 200 ? document.height : 1080;
+  var w = document.width > 200 ? document.width : 100%;
+  var h = document.height > 200 ? document.height : 100%;
   var hyp = Math.sqrt((w*w)+(h*h)) / 2;
   var canvas = document.getElementById('area');
   canvas.width = w; canvas.height = h;
