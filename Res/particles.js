@@ -42,18 +42,3 @@ q=function(e,b){
               var f=b.d*m.PI/180,g=m.sin(f)*b.b;b.x+=m.cos(f)*b.b+j*b.a/175;
               b.y+=g+k*b.a/175;
               (b.y-b.a>h||b.y<-b.a||b.x>400+b.a||b.x<-b.a||0>b.a)&&p.splice(e,1)}},5);
-
-
-var debugInput = document.querySelector("input");
-function updateDebugState() {
-    document.body.classList.toggle('debug-on', debugInput.checked);
-}
-debugInput.addEventListener("click", updateDebugState);
-updateDebugState();
-
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-10812217-1', 'auto');
-ga('send', 'pageview');
