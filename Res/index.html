@@ -176,14 +176,14 @@ img {
   //create particles and store in arr
   var particles = (function() {
     var arr = [],i=0;
-    while(i++ < 50)
+    while(i++ < 40)
       arr.push(getParticle());
     return arr;
   })();
 
   //produce more if running low
   var fountain = function() {
-    if (particles.length < 100)
+    if (particles.length < 50)
       particles.push(getParticle(), getParticle());
   };
 
@@ -207,7 +207,7 @@ img {
       var alpha = 1;
 
       //determine particle size
-      var size = i%2 == 0 ? 1 : 2;
+      var size = i%2 == 0 ? 5 : 10;
 
       //draw this particle
       ctx.fillStyle = 'rgba('+color.join()+','+alpha+')';
