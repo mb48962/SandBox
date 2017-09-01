@@ -1,5 +1,5 @@
 var b = document.body;
-var c = document.getElementsByTagName('canvas')[0];
+var c = document.getElementsByTagName("canvas")[0];
 var a = c.getContext('2d');
 h=400;
 p=[];
