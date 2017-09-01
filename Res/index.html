@@ -166,7 +166,7 @@ img {
   var color = [128, 0, 255];
 
   //get particle origin
-  var origin = [w/2 - 200, h/2 + 200];
+  var origin = [w/2, h/2];
 
   //generate a particle
   var getParticle = function() {
@@ -176,7 +176,7 @@ img {
   //create particles and store in arr
   var particles = (function() {
     var arr = [],i=0;
-    while(i++ < 40)
+    while(i++ < 25)
       arr.push(getParticle());
     return arr;
   })();
@@ -204,7 +204,7 @@ img {
         particle[2] += 0.05;
 
       //fade out at distance
-      var alpha = 1;
+      var alpha = 1 - (dis/(hyp*0.5));
 
       //determine particle size
       var size = i%2 == 0 ? 2 : 4;
