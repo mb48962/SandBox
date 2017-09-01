@@ -1,6 +1,5 @@
 canvas {
-  left: 50%;
-  margin: -200px 0 0 -200px;
+  height: 75%;
+  width: 100%;
 	position: absolute;
-  top: 50%;
 }
