@@ -176,14 +176,14 @@ img {
   //create particles and store in arr
   var particles = (function() {
     var arr = [],i=0;
-    while(i++ < 200)
+    while(i++ < 50)
       arr.push(getParticle());
     return arr;
   })();
 
   //produce more if running low
   var fountain = function() {
-    if (particles.length < 1500)
+    if (particles.length < 100)
       particles.push(getParticle(), getParticle());
   };
 
