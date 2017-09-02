@@ -48,15 +48,21 @@ crossorigin="anonymous"></script>
     z-index: -1;
   }
   .parallax__layer--second {
-    -webkit-transform: translateZ(100px);
+    -webkit-transform: translateZ(0)scale(1);
     transform: translateZ(0) scale(1);
     z-index: -1;
     bottom: 100%;
+    top: 50%;
+    background: cornflowerblue;
+    height: 5%;
   }
   .parallax__layer--third {
-    -webkit-transform: translateZ(200px);
-    transform: translateZ(300px) scale(1);
+    -webkit-transform: translateZ(-1000px)scale(2);
+    transform: translateZ(-1000px) scale(2);
     z-index: -2;
+    top: 20%;
+    background: gray;
+    height: 5%;
   }
 
   /* Debugger styles - used to show the effect
@@ -155,7 +161,7 @@ img {
   </div>
 
   <!-- <canvas id="area"></canvas> -->
-  <!-- <img id="1" src="images/spiral.png"/> -->
+  <img id="1" src="images/spiral.png"/>
 
   <div class="parallax">
     <!-- first section-->
