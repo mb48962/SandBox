@@ -295,6 +295,8 @@ var particles = [];
 var mouseX = 0;
 var mouseY = 0;
 
+var limited = 0;
+
 this.init = function() {
   canvas = document.querySelector("canvas");
 
@@ -358,7 +360,10 @@ function documentMouseMoveHandler(event) {
 }
 
 function documentMouseDownHandler(event) {
-  createCursor({x: mouseX, y: mouseY});
+  limited++;
+  if (limited < 5) {
+    createCursor({x: mouseX, y: mouseY});
+  }
 }
 
 function windowResizeHandler() {
