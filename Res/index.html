@@ -197,78 +197,221 @@ img {
 
   <!-- Particles -->
   <script>
-  console.clear();
+//   console.clear();
+//
+//   (function part() {
+//   //setup document
+//   var w = document.width > 200 ? document.width : 1920;
+//   var h = document.height > 200 ? document.height : 1080;
+//   var hyp = Math.sqrt((w*w)+(h*h)) / 2;
+//   var canvas = document.getElementById('area');
+//   canvas.width = w; canvas.height = h;
+//   var ctx = canvas.getContext("2d");
+//
+//   var color = [128, 0, 255];
+//
+//   //get particle origin
+//   var origin = [w/2, h/2];
+//
+//   //generate a particle
+//   var getParticle = function() {
+//     return [origin[0], origin[1], Math.random()*360, Math.random()*2+1];
+//   };
+//
+//   //create particles and store in arr
+//   var particles = (function() {
+//     var arr = [],i=0;
+//     while(i++ < 25)
+//       arr.push(getParticle());
+//     return arr;
+//   })();
+//
+//   //produce more if running low
+//   var fountain = function() {
+//     if (particles.length < 50)
+//       particles.push(getParticle(), getParticle());
+//   };
+//
+//   //render each particle: twirl fade change size
+//   var render = function() {
+//     [].forEach.call(particles, function(particle, i) {
+//       //get new position for particle ( x = x + degree * cos(y) )
+//       particle[0] += particle[3] * Math.cos(particle[2]);
+//       particle[1] += particle[3] * Math.sin(particle[2]);
+//
+//       //get distance from origin
+//       var diffX = particle[0] - origin[0];
+//       var diffY = particle[1] - origin[1];
+//       var dis = Math.sqrt((diffX*diffX)+(diffY*diffY));
+//
+//       //add twirl at 30% distance from origin
+//       if (dis > hyp*0.3)
+//         particle[2] += 0.05;
+//
+//       //fade out at distance
+//       var alpha = 1 - (dis/(hyp*0.5));
+//
+//       //determine particle size
+//       var size = i%2 == 0 ? 2 : 4;
+//
+//       //draw this particle
+//       ctx.fillStyle = 'rgba('+color.join()+','+alpha+')';
+//       ctx.circle(particle[0],particle[1],size,size);
+//     });
+//   };
+//
+//   //call animation steps
+//   (function step() {
+//     requestAnimationFrame(step);
+//     ctx.clearRect(0,0,w,h);
+//     fountain();
+//     render();
+//   })();
+//
+// })();
+MeteorRain = new function() {
+var SCREEN_WIDTH = window.innerWidth;
+var SCREEN_HEIGHT = window.innerHeight;
 
-  (function part() {
-  //setup document
-  var w = document.width > 200 ? document.width : 1920;
-  var h = document.height > 200 ? document.height : 1080;
-  var hyp = Math.sqrt((w*w)+(h*h)) / 2;
-  var canvas = document.getElementById('area');
-  canvas.width = w; canvas.height = h;
-  var ctx = canvas.getContext("2d");
+var cursor;
+var canvas;
+var context;
 
-  var color = [128, 0, 255];
+var particles = [];
 
-  //get particle origin
-  var origin = [w/2, h/2];
+var mouseX = 0;
+var mouseY = 0;
 
-  //generate a particle
-  var getParticle = function() {
-    return [origin[0], origin[1], Math.random()*360, Math.random()*2+1];
-  };
+this.init = function() {
+  canvas = document.querySelector("canvas");
 
-  //create particles and store in arr
-  var particles = (function() {
-    var arr = [],i=0;
-    while(i++ < 25)
-      arr.push(getParticle());
-    return arr;
-  })();
+  if (canvas && canvas.getContext) {
+    context = canvas.getContext('2d');
 
-  //produce more if running low
-  var fountain = function() {
-    if (particles.length < 50)
-      particles.push(getParticle(), getParticle());
-  };
+    document.addEventListener('mousemove', documentMouseMoveHandler, false);
+    document.addEventListener('mousedown', documentMouseDownHandler, false);
+    window.addEventListener('resize', windowResizeHandler, false);
 
-  //render each particle: twirl fade change size
-  var render = function() {
-    [].forEach.call(particles, function(particle, i) {
-      //get new position for particle ( x = x + degree * cos(y) )
-      particle[0] += particle[3] * Math.cos(particle[2]);
-      particle[1] += particle[3] * Math.sin(particle[2]);
+    createCursor();
 
-      //get distance from origin
-      var diffX = particle[0] - origin[0];
-      var diffY = particle[1] - origin[1];
-      var dis = Math.sqrt((diffX*diffX)+(diffY*diffY));
+    windowResizeHandler();
 
-      //add twirl at 30% distance from origin
-      if (dis > hyp*0.3)
-        particle[2] += 0.05;
+    setInterval(loop, 1000/100);
+  }
+}
 
-      //fade out at distance
-      var alpha = 1 - (dis/(hyp*0.5));
+function createCursor(position) {
+  var w = 300;
+  var h = 300;
 
-      //determine particle size
-      var size = i%2 == 0 ? 2 : 4;
+if (!position){
+  var pos = {
+    x: ( SCREEN_WIDTH - w ) * 0.5 + (Math.random() * w),
+    y: ( SCREEN_HEIGHT - h ) * 0.5 + (Math.random() * h)
+  }
 
-      //draw this particle
-      ctx.fillStyle = 'rgba('+color.join()+','+alpha+')';
-      ctx.circle(particle[0],particle[1],size,size);
-    });
-  };
+  var m = new Cursor();
+  m.position.x = pos.x;
+  m.position.y = pos.y;
 
-  //call animation steps
-  (function step() {
-    requestAnimationFrame(step);
-    ctx.clearRect(0,0,w,h);
-    fountain();
-    render();
-  })();
+  cursor = m;
 
-})();
+  createParticles(m.position);
+
+  } else {
+    var m = new Cursor();
+      m.position.x = position.x;
+      m.position.y = position.y;
+
+    createParticles(m.position);
+  }
+}
+
+function createParticles(pos) {
+  for (var i = 0; i < 50; i++) {
+    var p = new Particle();
+    p.position.x = pos.x;
+    p.position.y = pos.y;
+    p.shift.x = pos.x;
+    p.shift.y = pos.y;
+
+    particles.push(p);
+  }
+}
+
+function documentMouseMoveHandler(event) {
+  mouseX = event.clientX;
+  mouseY = event.clientY;
+}
+
+function documentMouseDownHandler(event) {
+  createCursor({x: mouseX, y: mouseY});
+}
+
+function windowResizeHandler() {
+  canvas.width = SCREEN_WIDTH;
+  canvas.height = SCREEN_HEIGHT;
+
+  canvas.style.position = 'absolute';
+
+  canvas.style.left = (window.innerWidth - SCREEN_WIDTH) * 0.5 + 'px';
+  canvas.style.top = (window.innerHeight - SCREEN_HEIGHT) * 0.5 + 'px';
+}
+
+function loop() {
+  context.fillStyle = 'rgba(0,0,0,0.2)';
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  var particle;
+  var i, j, ilen, jlen;
+
+  cursor.position.x += (mouseX - cursor.position.x)*0.1;
+  cursor.position.y += (mouseY - cursor.position.y)*0.1;
+
+  for (i = 0, ilen = particles.length; i < ilen; i++) {
+    particle = particles[i];
+
+    particle.angle += particle.speed;
+
+    particle.shift.x += (cursor.position.x - particle.shift.x) * particle.speed;
+    particle.shift.y += (cursor.position.y - particle.shift.y) * particle.speed;
+
+    particle.position.x = particle.shift.x + Math.sin(i + particle.angle) * (particle.orbit*particle.force);
+    particle.position.y = particle.shift.y + Math.cos(i + particle.angle) * (particle.orbit*particle.force);
+
+    particle.orbit += (cursor.orbit - particle.orbit) * 0.01;
+
+    context.beginPath();
+    context.fillStyle = "hsl("+((particle.position.x/canvas.width + particle.position.y/canvas.height) * 180) + ", 100%, 70%)";
+    context.arc(particle.position.x, particle.position.y, particle.size/2, 0, Math.PI*2, true);
+    context.fill();
+  }
+}
+}
+
+function distanceBetween(p1,p2) {
+var dx = p2.x - p1.x;
+var dy = p2.y - p1.y;
+return Math.sqrt(dx^2 + dy^2);
+}
+
+function Particle() {
+this.size = 2 + Math.random()*4;
+this.position = {x: 0, y: 0};
+this.shift = {x: 0, y: 0};
+this.angle = 0;
+this.speed = 0.01 + Math.random()*0.02;
+this.force = -(Math.random()*10);
+this.orbit = 1;
+}
+
+function Cursor() {
+this.orbit = 100;
+this.position = {x: 0, y: 0};
+}
+
+MeteorRain.init();
+
   </script>
 
   <!-- Debug  -->
