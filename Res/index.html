@@ -4,6 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <title>Matthew</title>
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+crossorigin="anonymous"></script>
 <link rel="stylesheet" href="canvas.css" type="text/css"/>
 <script type="text/javascript" href="particle.js"></script>
 <style>
@@ -36,8 +43,8 @@
   /*formula: scale = ( 1 + [(translateZ * -1 )/perspective] )
     perspective currently set to 1000px*/
   .parallax__layer--first {
-    -webkit-transform: translateZ(-1000px) scale(2);
-    transform: translateZ(-1000px) scale(2);
+    -webkit-transform: translateZ(-3000px) scale(3);
+    transform: translateZ(-3000px) scale(3);
     z-index: -1;
   }
   .parallax__layer--second {
