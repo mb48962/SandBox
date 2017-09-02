@@ -3,7 +3,7 @@ html,body {
   -webkit-background-size:cover;
   -moz-background-size:cover;
   background-size:cover;
-  overflow:hidden;
+  /*overflow:hidden;*/
   margin:0;
   position:relative;
   height:100%;
