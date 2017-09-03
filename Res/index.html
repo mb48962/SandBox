@@ -348,8 +348,10 @@ img {
     return Math.sqrt(dx^2 + dy^2);
     }
 
+    var grow = 0;
     function Particle() {
-    this.size = 2 + Math.random()*4;
+      grow = grow + 0.001;
+    this.size = 2 + Math.random()*4 + grow;
     this.position = {x: 0, y: 0};
     this.shift = {x: 0, y: 0};
     this.angle = 0;
