@@ -10,6 +10,16 @@ html,body {
   padding:0;
 }
 
+.btn-toolbar>.btn {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.btn-default {
+  background: black;
+  border-color: #CCB;
+}
+
 ::-webkit-scrollbar {
     width: 5px;
 }
