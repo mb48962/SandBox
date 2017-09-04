@@ -17,7 +17,7 @@ html,body {
 
 .btn-default {
   background: black;
-  border-color: #CCB;
+  color: whitesmoke;
 }
 
 ::-webkit-scrollbar {
