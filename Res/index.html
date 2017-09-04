@@ -48,8 +48,8 @@ crossorigin="anonymous"></script>
   /*formula: scale = ( 1 + [(translateZ * -1 )/perspective] )
     perspective currently set to 1000px*/
   .parallax__layer--first {
-    -webkit-transform: translateZ(-9000px) scale(9);
-    transform: translateZ(-9000px) scale(9);
+    -webkit-transform: translateZ(-5000px) scale(4);
+    transform: translateZ(-5000px) scale(4);
     z-index: -3;
   }
   .parallax__layer--second {
@@ -68,8 +68,8 @@ crossorigin="anonymous"></script>
     height: 5%;
   }
   .parallax__layer--particle {
-    -webkit-transform: translateZ(-9000px) scale(9);
-    transform: translateZ(-9000px) scale(9);
+    -webkit-transform: translateZ(-5000px) scale(5);
+    transform: translateZ(-5000px) scale(5);
     z-index: -4;
   }
 
@@ -105,9 +105,9 @@ crossorigin="anonymous"></script>
     overflow: hidden;
   }
 
-  body {
+  /*body {
     font: 100% / 1.5 Arial;
-  }
+  }*/
 
   * {
     margin:0;
