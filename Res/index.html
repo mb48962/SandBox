@@ -48,29 +48,29 @@ crossorigin="anonymous"></script>
   /*formula: scale = ( 1 + [(translateZ * -1 )/perspective] )
     perspective currently set to 1000px*/
   .parallax__layer--first {
-    -webkit-transform: translateZ(-3000px) scale(3);
-    transform: translateZ(-4000px) scale(4);
-    z-index: -1;
+    -webkit-transform: translateZ(-9000px) scale(9);
+    transform: translateZ(-9000px) scale(9);
+    z-index: -4;
   }
   .parallax__layer--second {
     -webkit-transform: translateZ(0)scale(1);
     transform: translateZ(0) scale(1);
-    z-index: -1;
+    z-index: -2;
     top: 100%;
     height: 5%;
   }
   .parallax__layer--third {
     -webkit-transform: translateZ(-1000px)scale(2);
     transform: translateZ(-1000px) scale(2);
-    z-index: -2;
+    z-index: -1;
     top: 20%;
     background: gray;
     height: 5%;
   }
   .parallax__layer--particle {
-    -webkit-transform: translateZ(-3000px) scale(4);
-    transform: translateZ(-3000px) scale(4);
-    z-index: -1;
+    -webkit-transform: translateZ(-9000px) scale(9);
+    transform: translateZ(-9000px) scale(9);
+    z-index: -3;
   }
 
   /* Debugger styles - used to show the effect
